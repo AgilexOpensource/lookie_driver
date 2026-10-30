@@ -1,0 +1,50 @@
+# lookie__pf-lookie_trio_r01__ee-revo2std_r01 ROS parameters
+# (per-node sections; yaml_path is set by launch).
+/head/head_node:
+  ros__parameters:
+    module_key: head
+    can_channel: can_head
+    auto_configure: true
+    auto_enable: true
+    feedback_rate: 50.0
+    control_mode: mit
+    control_enabled: true
+
+/fold/fold_node:
+  ros__parameters:
+    module_key: fold
+    can_channel: can_torso
+    auto_configure: true
+    auto_enable: true
+    feedback_rate: 50.0
+    control_enabled: true
+
+/left_arm/agx_arm_ctrl_single_node:
+  ros__parameters:
+    can_port: can_left_arm
+    arm_type: nero
+    effector_type: revo2
+    revo2_type: left
+    auto_enable: true
+    fast_mode: true
+    speed_percent: 100
+    pub_rate: 50
+    enable_timeout: 5.0
+    tcp_offset: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    gripper_default_effort: 1.0
+    control_enabled: true
+
+/right_arm/agx_arm_ctrl_single_node:
+  ros__parameters:
+    can_port: can_right_arm
+    arm_type: nero
+    effector_type: revo2
+    revo2_type: right
+    auto_enable: true
+    fast_mode: true
+    speed_percent: 100
+    pub_rate: 50
+    enable_timeout: 5.0
+    tcp_offset: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    gripper_default_effort: 1.0
+    control_enabled: true

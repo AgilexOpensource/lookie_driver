@@ -1,0 +1,57 @@
+# Joint bridge for lookie__pf-lookie_trio_r01__ee-revo2std_r01.
+# Robot-side names follow lookie_description URDF; mimic joints (*_distal) are
+# driven by the hand firmware and are not bridged.
+
+namespace: trio
+feedback_topic: feedback/joint_states
+control_topic: control/joint_states
+feedback_rate: 50.0
+
+modules:
+  - name: fold
+    namespace: fold
+    joints:
+      - torso_joint1
+      - torso_joint2
+      - torso_joint3
+      - torso_joint4
+
+  - name: head
+    namespace: head
+    joints:
+      - head_joint1
+      - head_joint2
+
+  - name: left_arm
+    namespace: left_arm
+    joint_map:
+      joint1: l_arm_joint1
+      joint2: l_arm_joint2
+      joint3: l_arm_joint3
+      joint4: l_arm_joint4
+      joint5: l_arm_joint5
+      joint6: l_arm_joint6
+      joint7: l_arm_joint7
+      left_thumb_metacarpal_joint: left_thumb_metacarpal_joint
+      left_thumb_proximal_joint: left_thumb_proximal_joint
+      left_index_proximal_joint: left_index_proximal_joint
+      left_middle_proximal_joint: left_middle_proximal_joint
+      left_ring_proximal_joint: left_ring_proximal_joint
+      left_pinky_proximal_joint: left_pinky_proximal_joint
+
+  - name: right_arm
+    namespace: right_arm
+    joint_map:
+      joint1: r_arm_joint1
+      joint2: r_arm_joint2
+      joint3: r_arm_joint3
+      joint4: r_arm_joint4
+      joint5: r_arm_joint5
+      joint6: r_arm_joint6
+      joint7: r_arm_joint7
+      right_thumb_metacarpal_joint: right_thumb_metacarpal_joint
+      right_thumb_proximal_joint: right_thumb_proximal_joint
+      right_index_proximal_joint: right_index_proximal_joint
+      right_middle_proximal_joint: right_middle_proximal_joint
+      right_ring_proximal_joint: right_ring_proximal_joint
+      right_pinky_proximal_joint: right_pinky_proximal_joint

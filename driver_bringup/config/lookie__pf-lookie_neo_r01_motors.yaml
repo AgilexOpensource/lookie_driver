@@ -1,0 +1,58 @@
+# Lookie Neo (lookie_neo_r01) motor configuration, shared by all end effectors.
+#
+# Modules (module_key): head, lift (升降柱 torso_joint1 + 腰部俯仰 torso_joint2).
+# Limits are driver soft limits and must stay within lookie_description URDF.
+# Node IDs / polarity must be calibrated against hardware before deployment.
+
+head:
+  can_channel: can_head
+  profile_vel: 3.0
+  profile_accel: 5.0
+  profile_decel: 5.0
+  mit_tf: 16.0
+  mit_kp: 10.0
+  mit_kd: 0.8
+  torque_k: 2.63578
+  torque_b: 0.62107
+  joints:
+    - joint_name: head_joint1
+      node_id: 1
+      polarity: -1.0
+      lower_limit: -0.5
+      upper_limit: 0.9
+      torque_limit: 6.0
+
+    - joint_name: head_joint2
+      node_id: 2
+      polarity: -1.0
+      lower_limit: -1.57
+      upper_limit: 1.57
+      torque_limit: 6.0
+
+lift:
+  can_channel: can_lift
+  joints:
+    # 升降柱（棱柱关节）
+    - joint_name: torso_joint1
+      node_id: 1
+      # m ↔ mm（固件位置单位 mm，ROS/URDF 为 m）
+      polarity: 0.001
+      # profile_* 直发电机空间 [mm/s]、[mm/s²]
+      profile_vel: 10.0
+      profile_accel: 30.0
+      profile_decel: 30.0
+      lower_limit: 0.0
+      upper_limit: 0.4
+
+    # 腰部 pitch RB200
+    - joint_name: torso_joint2
+      node_id: 2
+      polarity: -1.0
+      profile_vel: 3.0
+      profile_accel: 5.0
+      profile_decel: 5.0
+      lower_limit: -1.55225
+      upper_limit: 1.55225
+      torque_k: 1.0
+      torque_b: 50.0
+      torque_limit: 50.0
