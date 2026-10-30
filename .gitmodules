@@ -1,0 +1,20 @@
+[submodule "agx_arm_ros"]
+	path = agx_arm_ros
+	url = https://github.com/agilexrobotics/agx_arm_ros.git
+	branch = ros2
+[submodule "fold_ros"]
+	path = fold_ros
+	url = https://github.com/AgilexOpensource/fold_ros.git
+	branch = main
+[submodule "head_ros"]
+	path = head_ros
+	url = https://github.com/AgilexOpensource/head_ros.git
+	branch = main
+[submodule "lift_ros"]
+	path = lift_ros
+	url = https://github.com/AgilexOpensource/lift_ros.git
+	branch = main
+[submodule "motor_ros"]
+	path = motor_ros
+	url = https://github.com/AgilexOpensource/motor_ros.git
+	branch = main

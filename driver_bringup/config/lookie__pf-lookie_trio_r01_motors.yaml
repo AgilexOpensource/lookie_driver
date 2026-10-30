@@ -1,0 +1,67 @@
+# Lookie Trio (lookie_trio_r01) motor configuration, shared by all end effectors.
+#
+# Modules (module_key): head, fold (4-axis folding torso torso_joint1..4).
+# Limits are driver soft limits and must stay within lookie_description URDF.
+# CAN topology:
+# - Module-level ``can_channel`` is the default for all joints in that module.
+# - Per-joint ``can_channel`` overrides the default (multi-bus module).
+# - Multiple YAML modules on the same channel share one CAN backend.
+
+head:
+  can_channel: can_head
+  profile_vel: 5.0
+  profile_accel: 5.0
+  profile_decel: 5.0
+  mit_tf: 16.0
+  mit_kp: 10.0
+  mit_kd: 0.8
+  torque_k: 2.63578
+  torque_b: 0.62107
+  joints:
+    - joint_name: head_joint1
+      node_id: 1
+      polarity: -1.0
+      lower_limit: -0.5
+      upper_limit: 0.9
+      torque_limit: 6.0
+
+    - joint_name: head_joint2
+      node_id: 2
+      polarity: -1.0
+      lower_limit: -1.57
+      upper_limit: 1.57
+      torque_limit: 6.0
+
+fold:
+  can_channel: can_torso
+  profile_vel: 3.0
+  profile_accel: 5.0
+  profile_decel: 5.0
+  joints:
+    - joint_name: torso_joint1
+      node_id: 1
+      polarity: 1.0
+      lower_limit: -1.5707963267948966
+      upper_limit: 1.396
+      torque_b: 84.0
+
+    - joint_name: torso_joint2
+      node_id: 2
+      polarity: 1.0
+      lower_limit: 0.0
+      upper_limit: 2.618
+      torque_b: 84.0
+
+    - joint_name: torso_joint3
+      node_id: 3
+      polarity: 1.0
+      lower_limit: -1.5
+      upper_limit: 1.57
+      torque_b: 50.0
+
+    - joint_name: torso_joint4
+      node_id: 4
+      polarity: 1.0
+      lower_limit: -1.396
+      upper_limit: 1.396
+      torque_b: 30.0
